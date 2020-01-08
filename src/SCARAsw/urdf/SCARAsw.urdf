@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.5.1-0-g916b5db  Build Version: 1.5.7152.31018
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="SCARAsw">
+  <link
+    name="base">
+    <inertial>
+      <origin
+        xyz="-0.041021 -0.01091 -0.010011"
+        rpy="0 0 0" />
+      <mass
+        value="15.652" />
+      <inertia
+        ixx="0.077426"
+        ixy="1.6503E-15"
+        ixz="-3.9874E-16"
+        iyy="0.08833"
+        iyz="9.4391E-06"
+        izz="0.07706" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://SCARAsw/meshes/base.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://SCARAsw/meshes/base.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="humero">
+    <inertial>
+      <origin
+        xyz="1.0077E-07 0.04781 0.14224"
+        rpy="0 0 0" />
+      <mass
+        value="5" />
+      <inertia
+        ixx="0.021545"
+        ixy="-2.8561E-09"
+        ixz="-1.8453E-08"
+        iyy="0.022582"
+        iyz="-0.00042031"
+        izz="0.0015981" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://SCARAsw/meshes/humero.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://SCARAsw/meshes/humero.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="hombro"
+    type="revolute">
+    <origin
+      xyz="-0.041021 -0.00048803 0.067705"
+      rpy="1.5708 0 -1.6289" />
+    <parent
+      link="base" />
+    <child
+      link="humero" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="0"
+      upper="3.1416"
+      effort="100"
+      velocity="100" />
+  </joint>
+  <link
+    name="radio_cubito">
+    <inertial>
+      <origin
+        xyz="-5.3986E-06 0.1515 0.13928"
+        rpy="0 0 0" />
+      <mass
+        value="9" />
+      <inertia
+        ixx="0.011379"
+        ixy="1.9223E-08"
+        ixz="-5.0619E-08"
+        iyy="0.0071392"
+        iyz="-0.0017743"
+        izz="0.0062173" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://SCARAsw/meshes/radio_cubito.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://SCARAsw/meshes/radio_cubito.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="codo"
+    type="revolute">
+    <origin
+      xyz="0 0.0395 0.33"
+      rpy="3.1416 0.55314 3.1416" />
+    <parent
+      link="humero" />
+    <child
+      link="radio_cubito" />
+    <axis
+      xyz="0 1 0" />
+ <limit
+      lower="-4.71"
+      upper="0"
+      effort="100"
+      velocity="100" />
+  </joint>
+  <link
+    name="zeta">
+    <inertial>
+      <origin
+        xyz="-0.011881 0.036578 -0.016578"
+        rpy="0 0 0" />
+      <mass
+        value="2" />
+      <inertia
+        ixx="0.0028275"
+        ixy="3.4325E-06"
+        ixz="2.9944E-10"
+        iyy="0.00010967"
+        iyz="1.0805E-11"
+        izz="0.0028174" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://SCARAsw/meshes/zeta.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://SCARAsw/meshes/zeta.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="prism"
+    type="prismatic">
+    <origin
+      xyz="0.016578 0 0.33289"
+      rpy="0 1.5708 0" />
+    <parent
+      link="radio_cubito" />
+    <child
+      link="zeta" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-0.040"
+      upper="0.182"
+      effort="100"
+      velocity="100" />
+  </joint>
+    <link name="puntita">
+      <visual>
+        <geometry>
+          <cylinder length="0.1" radius="0.025"/>
+        </geometry>
+      </visual>
+    </link>
+  <joint
+    name="end"
+    type="fixed">
+    <origin
+      xyz="0 -0.24 0"
+      rpy="0 1 0" />
+    <parent
+      link="zeta" />
+    <child
+      link="puntita" />
+  </joint>
+</robot>

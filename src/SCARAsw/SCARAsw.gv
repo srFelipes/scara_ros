@@ -1,0 +1,14 @@
+digraph G {
+node [shape=box];
+"base" [label="base"];
+"humero" [label="humero"];
+"radio_cubito" [label="radio_cubito"];
+"zeta" [label="zeta"];
+node [shape=ellipse, color=blue, fontcolor=blue];
+"base" -> "hombro" [label="xyz: -0.041021 -0.00048803 0.067705 \nrpy: 1.5708 5.55112e-17 -1.6289"]
+"hombro" -> "humero"
+"humero" -> "codo" [label="xyz: 0 0.0395 0.33 \nrpy: -3.14159 0.55314 -3.14159"]
+"codo" -> "radio_cubito"
+"radio_cubito" -> "prism" [label="xyz: 0.016578 0 0.33289 \nrpy: 0 1.5708 -0"]
+"prism" -> "zeta"
+}

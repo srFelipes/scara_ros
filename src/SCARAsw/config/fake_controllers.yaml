@@ -1,0 +1,9 @@
+controller_list:
+  - name: fake_scara_controller
+    joints:
+      - hombro
+      - codo
+      - prism
+  - name: fake_puntita_controller
+    joints:
+      []
