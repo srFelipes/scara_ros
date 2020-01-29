@@ -1,0 +1,9 @@
+controller_list:
+  - name: fake_robot_controller
+    joints:
+      - hombro
+      - codo
+      - pris
+  - name: fake_puntita_controller
+    joints:
+      []
