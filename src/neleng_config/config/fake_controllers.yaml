@@ -1,0 +1,6 @@
+controller_list:
+  - name: fake_nelen_group_controller
+    joints:
+      - hombro
+      - codo
+      - pris
