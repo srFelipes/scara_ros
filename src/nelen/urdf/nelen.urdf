@@ -2,6 +2,7 @@
 <!-- This URDF was crafted by the one and only Feliping. RFIDudes 2 the future -->
 
 <robot name="nelen">
+  <link name="world" />
   <link name="base_link">
     <inertial>
         <origin xyz="-0.024844 -0.012773 0.34999" rpy="0 0 0" />
@@ -114,6 +115,10 @@
         <axis xyz="0 0 1" />
         <limit lower="-0.268" upper="0" effort="70" velocity="5" />
     </joint>
+  <joint name="suelo" type="fixed">
+    <parent link="world"/>
+    <child link="base_link"/>
+  </joint>
     <transmission name="trans_hombro">
         <type>transmission_interface/SimpleTransmission</type>
         <joint name="hombro">
