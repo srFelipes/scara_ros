@@ -2,39 +2,15 @@
 <!-- This URDF was crafted by the one and only Feliping. RFIDudes 2 the future -->
 
 <robot name="nelen">
-  <link name="world" />
-  <link name="base_link">
-    <inertial>
-        <origin xyz="-0.024844 -0.012773 0.34999" rpy="0 0 0" />
-        <mass value="15.652" />
-        <inertia ixx="0.077426" ixy="1.6502E-15" ixz="-3.9864E-16" iyy="0.08833" iyz="9.4391E-06" izz="0.07706" />
-    </inertial>
-    <visual>
-      <geometry>
-        <mesh filename="package://nelen/meshes/base_corrected.dae" />
-      </geometry>
-      <material name="">
-        <color rgba="0.75294 0.75294 0.75294 1" />
-      </material>
-    </visual>
-    <collision>
-      <origin xyz="0 0 0" rpy="0 0 0" />
-      <geometry>
-        <mesh filename="package://nelen/meshes/base_corrected.dae" />
-      </geometry>
-    </collision>
-  </link>
-  <link name="humero">        
-    <inertial>
-        <origin xyz="1.0851E-08 0.048114 0.14266" rpy="0 0 0" />
-        <mass value="5" />
-        <inertia ixx="0.019084" ixy="-1.4804E-10" ixz="-2.2963E-09" iyy="0.020036" iyz="-0.00043182" izz="0.0013447" />
-     </inertial>
-
+    <link name="base_link">
+        <inertial>
+            <origin xyz="-0.024844 -0.012773 0.34999" rpy="0 0 0" />
+            <mass value="15.652" />
+            <inertia ixx="0.077426" ixy="1.6502E-15" ixz="-3.9864E-16" iyy="0.08833" iyz="9.4391E-06" izz="0.07706" />
+        </inertial>
         <visual>
-            <origin xyz="0 0 0" rpy="0 0 0" />
             <geometry>
-                <mesh filename="package://nelen/meshes/humero_corrected.dae" />
+                <mesh filename="package://nelen_description/meshes/base_corrected.dae" />
             </geometry>
             <material name="">
                 <color rgba="0.75294 0.75294 0.75294 1" />
@@ -43,10 +19,35 @@
         <collision>
             <origin xyz="0 0 0" rpy="0 0 0" />
             <geometry>
-                <mesh filename="package://nelen/meshes/humero_corrected.dae" />
+                <mesh filename="package://nelen_description/meshes/base_corrected.dae" />
             </geometry>
         </collision>
     </link>
+
+    <link name="humero">
+        <inertial>
+            <origin xyz="1.0851E-08 0.048114 0.14266" rpy="0 0 0" />
+            <mass value="5" />
+            <inertia ixx="0.019084" ixy="-1.4804E-10" ixz="-2.2963E-09" iyy="0.020036" iyz="-0.00043182" izz="0.0013447" />
+        </inertial>
+
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://nelen_description/meshes/humero_corrected.dae" />
+            </geometry>
+            <material name="">
+                <color rgba="0.75294 0.75294 0.75294 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://nelen_description/meshes/humero_corrected.dae" />
+            </geometry>
+        </collision>
+    </link>
+
     <joint name="hombro" type="revolute">
         <origin xyz="0 0 0.262" rpy="0 0 0" />
         <parent link="base_link" />
@@ -54,7 +55,8 @@
         <axis xyz="0 0 1" />
         <limit lower="-1.57" upper="1.57" effort="45" velocity="8" />
     </joint>
-  <link name="rc">        
+
+    <link name="rc">
         <inertial>
             <origin xyz="6.9227E-07 0.15158 0.13901" rpy="0 0 0" />
             <mass value="15" />
@@ -64,7 +66,7 @@
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0" />
             <geometry>
-                <mesh filename="package://nelen/meshes/rc_corrected.dae" />
+                <mesh filename="package://nelen_description/meshes/rc_corrected.dae" />
             </geometry>
             <material name="">
                 <color rgba="0.75294 0.75294 0.75294 1" />
@@ -73,10 +75,11 @@
         <collision>
             <origin xyz="0 0 0" rpy="0 0 0" />
             <geometry>
-                <mesh filename="package://nelen/meshes/rc_corrected.dae" />
+                <mesh filename="package://nelen_description/meshes/rc_corrected.dae" />
             </geometry>
         </collision>
     </link>
+
     <joint name="codo" type="revolute">
         <origin xyz="0 -0.33 0.052" rpy="0 0 0" />
         <parent link="humero" />
@@ -84,18 +87,17 @@
         <axis xyz="0 0 1" />
         <limit lower="-2.61" upper="2.61" effort="35" velocity="8" />
     </joint>
-<link name="zeta">
-        
-<inertial>
+
+    <link name="zeta">
+        <inertial>
             <origin xyz="-0.011881 0.12518 -0.016578" rpy="0 0 0" />
             <mass value="2" />
             <inertia ixx="0.0028275" ixy="3.4325E-06" ixz="2.9995E-10" iyy="0.00010967" iyz="9.9633E-12" izz="0.0028174" />
         </inertial>
-
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0" />
             <geometry>
-                <mesh filename="package://nelen/meshes/z_corrected.dae" />
+                <mesh filename="package://nelen_description/meshes/z_corrected.dae" />
             </geometry>
             <material name="">
                 <color rgba="0.75294 0.75294 0.75294 1" />
@@ -104,10 +106,11 @@
         <collision>
             <origin xyz="0 0 0" rpy="0 0 0" />
             <geometry>
-                <mesh filename="package://nelen/meshes/z_corrected.dae" />
+                <mesh filename="package://nelen_description/meshes/z_corrected.dae" />
             </geometry>
         </collision>
     </link>
+
     <joint name="pris" type="prismatic">
         <origin xyz="0 -0.3534 -0.049" rpy="0 0 0" />
         <parent link="rc" />
@@ -115,37 +118,39 @@
         <axis xyz="0 0 1" />
         <limit lower="-0.268" upper="0" effort="70" velocity="5" />
     </joint>
-  <joint name="suelo" type="fixed">
-    <parent link="world"/>
-    <child link="base_link"/>
-  </joint>
+    <joint name="suelo" type="fixed">
+        <parent link="world"/>
+        <child link="base_link"/>
+    </joint>
+
     <transmission name="trans_hombro">
         <type>transmission_interface/SimpleTransmission</type>
         <joint name="hombro">
-            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface><!-- aqui poner interfaz con odrive -->
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>            <!-- aqui poner interfaz con odrive -->
         </joint>
         <actuator name="hombro_motor">
-            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface><!-- aqui poner interfaz con odrive -->
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>            <!-- aqui poner interfaz con odrive -->
             <mechanicalReduction>7</mechanicalReduction>
         </actuator>
     </transmission>
+
     <transmission name="trans_codo">
         <type>transmission_interface/SimpleTransmission</type>
         <joint name="codo">
-            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface><!-- aqui poner interfaz con odrive -->
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>            <!-- aqui poner interfaz con odrive -->
         </joint>
         <actuator name="codo_motor">
-            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface> <!-- aqui poner interfaz con odrive -->
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>            <!-- aqui poner interfaz con odrive -->
             <mechanicalReduction>7</mechanicalReduction>
         </actuator>
     </transmission>
     <transmission name="trans_pris">
         <type>transmission_interface/SimpleTransmission</type>
         <joint name="pris">
-            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface> <!-- aqui poner interfaz con odrive -->
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>            <!-- aqui poner interfaz con odrive -->
         </joint>
         <actuator name="pris_motor">
-            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface><!-- aqui poner interfaz con odrive -->
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>            <!-- aqui poner interfaz con odrive -->
             <mechanicalReduction>392.5</mechanicalReduction>
         </actuator>
     </transmission>

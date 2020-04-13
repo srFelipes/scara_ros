@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>nelen_debug</name>
+  <version>0.7.0</version>
+  <description>Visualization utilities to debug nelen</description>
+  <license>Modified BSD</license>
+
+  <author email="fgerman.mena@gmail.com">Felipe Guajardo</author>
+  <maintainer email="fgerman.mena@gmail.com">Felipe Guajardo</maintainer>
+
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>rospy</build_depend>
+  <build_export_depend>rospy</build_export_depend>
+  <exec_depend>rospy</exec_depend>
+
+  <export>
+    <!-- Other tools can request additional information be placed here -->
+  </export>
+</package>
