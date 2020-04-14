@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+
+<launch>
+    <node name="nelen_multiplot" pkg="rqt_multiplot" type="rqt_multiplot" args="--multiplot-run-all --multiplot-config $(find nelen_utils)/config/rqt_multiplot.xml"/>
+</launch>

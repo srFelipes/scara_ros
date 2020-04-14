@@ -1,0 +1,17 @@
+<launch>
+  <arg name="fixed" default="true" />
+  <arg name="simulation" default="false" />
+  <arg name="gui" default="false" />
+  <arg name="model" default="$(find nelen_description)/urdf/nelen.urdf.xacro"/>
+
+  <!-- Loads the urd to the parameter server -->
+  <param name="robot_description" command="xacro $(arg model) fixed:=$(arg fixed) simulation:=$(arg simulation)" />
+
+  <!-- Launches the joint state publisher  -->
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+    <param name="use_gui" value="$(arg gui)"/>
+  </node>
+
+  <!-- Launches the robot state publisher -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+</launch>
