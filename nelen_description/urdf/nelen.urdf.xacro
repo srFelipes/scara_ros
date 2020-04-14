@@ -49,7 +49,7 @@
     <xacro:property name="fore_arm_inertia_yz" value="-0.0017743"/>
     <xacro:property name="fore_arm_inertia_zz" value="0.0062172"/>
 
-    <!-- Z-axis -->
+    <!-- Z-axis (zeta) -->
     <xacro:property name="z_axis_name" value= "zeta"/>
     <xacro:property name="z_axis_x" value= "-0.011881"/>
     <xacro:property name="z_axis_y" value= "0.12518"/>
@@ -63,34 +63,34 @@
     <xacro:property name="z_axis_inertia_zz" value= "0.0028174"/>
 
     <!-- Joints -->
-    <!-- Shoulder -->
+    <!-- Shoulder (hombro) -->
     <xacro:property name="shoulder_name" value= "hombro"/>
     <xacro:property name="shoulder_x" value= "0"/>
     <xacro:property name="shoulder_y" value= "0"/>
     <xacro:property name="shoulder_z" value= "0.262"/>
     <xacro:property name="shoulder_lower_limit" value= "${-90 *pi/180}"/>
     <xacro:property name="shoulder_upper_limit" value= "${90 *pi/180}"/>
-    <xacro:property name="shoulder_effort" value= "45"/>
+    <xacro:property name="shoulder_effort" value= "45"/> <!-- N*m -->
     <xacro:property name="shoulder_velocity" value= "8"/>
 
-    <!-- Shoulder -->
+    <!-- Shoulder (codo) -->
     <xacro:property name="elbow_name" value= "codo"/>
     <xacro:property name="elbow_x" value= "0"/>
     <xacro:property name="elbow_y" value= "-0.33"/>
     <xacro:property name="elbow_z" value= "0.052"/>
     <xacro:property name="elbow_lower_limit" value= "${-150 *pi/180}"/>
     <xacro:property name="elbow_upper_limit" value= "${150 *pi/180}"/>
-    <xacro:property name="elbow_effort" value= "35"/>
+    <xacro:property name="elbow_effort" value= "35"/> <!-- N*m -->
     <xacro:property name="elbow_velocity" value= "8"/>
 
-    <!-- Shoulder -->
-    <xacro:property name="z_axis_joint_name" value= "zeta"/>
+    <!-- Z-Axis Joint (pris) -->
+    <xacro:property name="z_axis_joint_name" value= "pris"/>
     <xacro:property name="z_axis_joint_x" value= "0"/>
     <xacro:property name="z_axis_joint_y" value= "-0.3534"/>
     <xacro:property name="z_axis_joint_z" value= "-0.049"/>
     <xacro:property name="z_axis_joint_lower_limit" value= "${-15 *pi/180}"/>
     <xacro:property name="z_axis_joint_upper_limit" value= "${0 *pi/180}"/>
-    <xacro:property name="z_axis_joint_effort" value= "70"/>
+    <xacro:property name="z_axis_joint_effort" value= "70"/> <!-- N*m -->
     <xacro:property name="z_axis_joint_velocity" value= "5"/>
 
 
