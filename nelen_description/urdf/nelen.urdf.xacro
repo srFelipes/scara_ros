@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 
-<robot name="nelen" xmlns:xacro="http://www.ros.org/wiki/xacro">
+<robot name="nelen" 
+    xmlns:xacro="http://www.ros.org/wiki/xacro">
 
     <!-- XACRO parameters-->
     <xacro:arg name="simulation" default="false"/>
@@ -8,18 +9,92 @@
     <xacro:arg name="name" default="base"/>
 
     <!-- Arm parameterization -->
+    <!-- Links -->
+    <!-- Base -->
+    <xacro:property name="base_name" value= "base"/>
     <xacro:property name="base_x" value= "-0.024844"/>
     <xacro:property name="base_y" value= "-0.012773"/>
     <xacro:property name="base_z" value= "0.34999"/>
     <xacro:property name="base_mass" value= "15.652"/>
     <xacro:property name="base_inertia_xx" value="0.077426"/>
-    <xacro:property name="base_inertia_xy" value= "1.6502E-15"/>
-    <xacro:property name="base_inertia_xz" value= "-3.9864E-16"/>
-    <xacro:property name="base_inertia_yy" value= "0.08833"/>
-    <xacro:property name="base_inertia_yz" value= "9.4391E-06"/>
-    <xacro:property name="base_inertia_zz" value= "0.07706"/>
+    <xacro:property name="base_inertia_xy" value="1.6502E-15"/>
+    <xacro:property name="base_inertia_xz" value="-3.9864E-16"/>
+    <xacro:property name="base_inertia_yy" value="0.08833"/>
+    <xacro:property name="base_inertia_yz" value="9.4391E-06"/>
+    <xacro:property name="base_inertia_zz" value="0.07706"/>
+
+    <!-- Upper arm (humero) -->
+    <xacro:property name="upper_arm_name" value= "humero"/>
+    <xacro:property name="upper_arm_x" value="1.0851E-08"/>
+    <xacro:property name="upper_arm_y" value="0.048114"/>
+    <xacro:property name="upper_arm_z" value="0.14266"/>
+    <xacro:property name="upper_arm_mass" value= "5"/>
+    <xacro:property name="upper_arm_inertia_xx" value="0.019084"/>
+    <xacro:property name="upper_arm_inertia_xy" value="-1.4804E-10"/>
+    <xacro:property name="upper_arm_inertia_xz" value="-2.2963E-09"/>
+    <xacro:property name="upper_arm_inertia_yy" value="0.020036"/>
+    <xacro:property name="upper_arm_inertia_yz" value="-0.00043182"/>
+    <xacro:property name="upper_arm_inertia_zz" value="0.0013447"/>
+
+    <!-- Fore Arm (radio cubito) -->
+    <xacro:property name="fore_arm_name" value= "rc"/>
+    <xacro:property name="fore_arm_x" value= "6.9227E-07"/>
+    <xacro:property name="fore_arm_y" value= "0.15158"/>
+    <xacro:property name="fore_arm_z" value= "0.13901"/>
+    <xacro:property name="fore_arm_mass" value= "15"/>
+    <xacro:property name="fore_arm_inertia_xx" value="0.011379"/>
+    <xacro:property name="fore_arm_inertia_xy" value="1.7481E-08"/>
+    <xacro:property name="fore_arm_inertia_xz" value="-5.0618E-08"/>
+    <xacro:property name="fore_arm_inertia_yy" value="0.007139"/>
+    <xacro:property name="fore_arm_inertia_yz" value="-0.0017743"/>
+    <xacro:property name="fore_arm_inertia_zz" value="0.0062172"/>
+
+    <!-- Z-axis -->
+    <xacro:property name="z_axis_name" value= "zeta"/>
+    <xacro:property name="z_axis_x" value= "-0.011881"/>
+    <xacro:property name="z_axis_y" value= "0.12518"/>
+    <xacro:property name="z_axis_z" value= "-0.016578"/>
+    <xacro:property name="z_axis_mass" value= "2"/>
+    <xacro:property name="z_axis_inertia_xx" value="0.0028275"/>
+    <xacro:property name="z_axis_inertia_xy" value= "3.4325E-06"/>
+    <xacro:property name="z_axis_inertia_xz" value= "2.9995E-10"/>
+    <xacro:property name="z_axis_inertia_yy" value= "0.00010967"/>
+    <xacro:property name="z_axis_inertia_yz" value= "9.9633E-12"/>
+    <xacro:property name="z_axis_inertia_zz" value= "0.0028174"/>
+
+    <!-- Joints -->
+    <!-- Shoulder -->
+    <xacro:property name="shoulder_name" value= "hombro"/>
+    <xacro:property name="shoulder_x" value= "0"/>
+    <xacro:property name="shoulder_y" value= "0"/>
+    <xacro:property name="shoulder_z" value= "0.262"/>
+    <xacro:property name="shoulder_lower_limit" value= "${-90 *pi/180}"/>
+    <xacro:property name="shoulder_upper_limit" value= "${90 *pi/180}"/>
+    <xacro:property name="shoulder_effort" value= "45"/>
+    <xacro:property name="shoulder_velocity" value= "8"/>
+
+    <!-- Shoulder -->
+    <xacro:property name="elbow_name" value= "codo"/>
+    <xacro:property name="elbow_x" value= "0"/>
+    <xacro:property name="elbow_y" value= "-0.33"/>
+    <xacro:property name="elbow_z" value= "0.052"/>
+    <xacro:property name="elbow_lower_limit" value= "${-150 *pi/180}"/>
+    <xacro:property name="elbow_upper_limit" value= "${150 *pi/180}"/>
+    <xacro:property name="elbow_effort" value= "35"/>
+    <xacro:property name="elbow_velocity" value= "8"/>
+
+    <!-- Shoulder -->
+    <xacro:property name="z_axis_joint_name" value= "zeta"/>
+    <xacro:property name="z_axis_joint_x" value= "0"/>
+    <xacro:property name="z_axis_joint_y" value= "-0.3534"/>
+    <xacro:property name="z_axis_joint_z" value= "-0.049"/>
+    <xacro:property name="z_axis_joint_lower_limit" value= "${-15 *pi/180}"/>
+    <xacro:property name="z_axis_joint_upper_limit" value= "${0 *pi/180}"/>
+    <xacro:property name="z_axis_joint_effort" value= "70"/>
+    <xacro:property name="z_axis_joint_velocity" value= "5"/>
 
 
+    <!-- Robot definition -->
     <!-- Attach the robot to the world link if requested -->
     <xacro:if value="$(arg fixed)">
         <gazebo>
@@ -64,52 +139,26 @@
         </inertial>
     </link>
 
-    <!-- Link - Humero -->
-    <link name="humero">
-        <inertial>
-            <origin xyz="1.0851E-08 0.048114 0.14266" rpy="0 0 0" />
-            <mass value="5" />
-            <inertia ixx="0.019084" ixy="-1.4804E-10" ixz="-2.2963E-09" iyy="0.020036" iyz="-0.00043182" izz="0.0013447" />
-        </inertial>
-
-        <visual>
-            <origin xyz="0 0 0" rpy="0 0 0" />
-            <geometry>
-                <mesh filename="package://nelen_description/meshes/humero_corrected.dae" />
-            </geometry>
-            <material name="">
-                <color rgba="0.75294 0.75294 0.75294 1" />
-            </material>
-        </visual>
-        <collision>
-            <origin xyz="0 0 0" rpy="0 0 0" />
-            <geometry>
-                <mesh filename="package://nelen_description/meshes/humero_corrected.dae" />
-            </geometry>
-        </collision>
-    </link>
-
     <!-- Joint - Hombro -->
-    <joint name="hombro" type="revolute">
-        <origin xyz="0 0 0.262" rpy="0 0 0" />
+    <joint name="${shoulder_name}" type="revolute">
+        <origin xyz="${shoulder_x} ${shoulder_y} ${shoulder_z}" rpy="0 0 0" />
         <parent link="$(arg name)" />
-        <child link="humero" />
+        <child link="${upper_arm_name}" />
         <axis xyz="0 0 1" />
-        <limit lower="-1.57" upper="1.57" effort="45" velocity="8" />
+        <limit lower="${shoulder_lower_limit}" upper="${shoulder_upper_limit}" effort="${shoulder_effort}" velocity="${shoulder_velocity}" />
     </joint>
 
-    <!-- Link - RC -->
-    <link name="rc">
+    <!-- Link - Humero -->
+    <link name="${upper_arm_name}">
         <inertial>
-            <origin xyz="6.9227E-07 0.15158 0.13901" rpy="0 0 0" />
-            <mass value="15" />
-            <inertia ixx="0.011379" ixy="1.7481E-08" ixz="-5.0618E-08" iyy="0.007139" iyz="-0.0017743" izz="0.0062172" />
+            <origin xyz="${upper_arm_x} ${upper_arm_y} ${upper_arm_z}" rpy="0 0 0"/>
+            <mass value="${upper_arm_mass}"/>
+            <inertia ixx="${upper_arm_inertia_xx}" ixy="${upper_arm_inertia_xy}" ixz="${upper_arm_inertia_xz}" iyy="${upper_arm_inertia_yy}" iyz="${upper_arm_inertia_yz}" izz="${upper_arm_inertia_zz}"/>
         </inertial>
-
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0" />
             <geometry>
-                <mesh filename="package://nelen_description/meshes/rc_corrected.dae" />
+                <mesh filename="package://nelen_description/meshes/humero_corrected.dae" />
             </geometry>
             <material name="">
                 <color rgba="0.75294 0.75294 0.75294 1" />
@@ -118,26 +167,59 @@
         <collision>
             <origin xyz="0 0 0" rpy="0 0 0" />
             <geometry>
-                <mesh filename="package://nelen_description/meshes/rc_corrected.dae" />
+                <mesh filename="package://nelen_description/meshes/humero_corrected.dae" />
             </geometry>
         </collision>
     </link>
 
     <!-- Joint - Codo -->
-    <joint name="codo" type="revolute">
-        <origin xyz="0 -0.33 0.052" rpy="0 0 0" />
-        <parent link="humero" />
-        <child link="rc" />
+    <joint name="${elbow_name}" type="revolute">
+        <origin xyz="${elbow_x} ${elbow_y} ${elbow_z}" rpy="0 0 0" />
+        <parent link="${upper_arm_name}" />
+        <child link="${fore_arm_name}" />
         <axis xyz="0 0 1" />
-        <limit lower="-2.61" upper="2.61" effort="35" velocity="8" />
+        <limit lower="${elbow_lower_limit}" upper="${elbow_upper_limit}" effort="${elbow_effort}" velocity="${elbow_velocity}" />
+    </joint>
+
+    <!-- Link - RC -->
+    <link name="${fore_arm_name}">
+        <inertial>
+            <origin xyz="${fore_arm_x} ${fore_arm_y} ${fore_arm_z}" rpy="0 0 0"/>
+            <mass value="${fore_arm_mass}"/>
+            <inertia ixx="${fore_arm_inertia_xx}" ixy="${fore_arm_inertia_xy}" ixz="${fore_arm_inertia_xz}" iyy="${fore_arm_inertia_yy}" iyz="${fore_arm_inertia_yz}" izz="${fore_arm_inertia_zz}"/>
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://nelen_description/meshes/rc_corrected.dae" />
+            </geometry>
+            <material name="">
+                <color rgba="0.75294 0.75294 0.75294 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://nelen_description/meshes/rc_corrected.dae" />
+            </geometry>
+        </collision>
+    </link>
+
+    <!-- Joint - Pris -->
+    <joint name="${z_axis_joint_name}" type="prismatic">
+        <origin xyz="${z_axis_joint_x} ${z_axis_joint_y} ${z_axis_joint_z}" rpy="0 0 0" />
+        <parent link="${fore_arm_name}" />
+        <child link="${z_axis_name}" />
+        <axis xyz="0 0 1" />
+        <limit lower="${z_axis_joint_lower_limit}" upper="${z_axis_joint_upper_limit}" effort="${z_axis_joint_effort}" velocity="${z_axis_joint_velocity}" />
     </joint>
 
     <!-- Link - Zeta -->
-    <link name="zeta">
+    <link name="${z_axis_name}">
         <inertial>
-            <origin xyz="-0.011881 0.12518 -0.016578" rpy="0 0 0" />
-            <mass value="2" />
-            <inertia ixx="0.0028275" ixy="3.4325E-06" ixz="2.9995E-10" iyy="0.00010967" iyz="9.9633E-12" izz="0.0028174" />
+            <origin xyz="${z_axis_x} ${z_axis_y} ${z_axis_z}" rpy="0 0 0"/>
+            <mass value="${z_axis_mass}"/>
+            <inertia ixx="${z_axis_inertia_xx}" ixy="${z_axis_inertia_xy}" ixz="${z_axis_inertia_xz}" iyy="${z_axis_inertia_yy}" iyz="${z_axis_inertia_yz}" izz="${z_axis_inertia_zz}"/>
         </inertial>
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0" />
@@ -156,47 +238,36 @@
         </collision>
     </link>
 
-    <!-- Joint - Pris -->
-    <joint name="pris" type="prismatic">
-        <origin xyz="0 -0.3534 -0.049" rpy="0 0 0" />
-        <parent link="rc" />
-        <child link="zeta" />
-        <axis xyz="0 0 1" />
-        <limit lower="-0.268" upper="0" effort="70" velocity="5" />
-    </joint>
-
-
-
     <!-- Simulation -->
     <xacro:if value="$(arg simulation)">
         <!-- Gazebo plugin -->
-        <transmission name="trans_hombro">
+        <transmission name="trans_${shoulder_name}">
             <type>transmission_interface/SimpleTransmission</type>
-            <joint name="hombro">
+            <joint name="${shoulder_name}">
                 <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>                <!-- aqui poner interfaz con odrive -->
             </joint>
-            <actuator name="hombro_motor">
+            <actuator name="${shoulder_name}_motor">
                 <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>                <!-- aqui poner interfaz con odrive -->
                 <mechanicalReduction>7</mechanicalReduction>
             </actuator>
         </transmission>
 
-        <transmission name="trans_codo">
+        <transmission name="trans_${elbow_name}">
             <type>transmission_interface/SimpleTransmission</type>
-            <joint name="codo">
+            <joint name="${elbow_name}">
                 <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>                <!-- aqui poner interfaz con odrive -->
             </joint>
-            <actuator name="codo_motor">
+            <actuator name="${elbow_name}_motor">
                 <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>                <!-- aqui poner interfaz con odrive -->
                 <mechanicalReduction>7</mechanicalReduction>
             </actuator>
         </transmission>
-        <transmission name="trans_pris">
+        <transmission name="trans_${z_axis_joint_name}">
             <type>transmission_interface/SimpleTransmission</type>
-            <joint name="pris">
+            <joint name="${z_axis_joint_name}">
                 <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>                <!-- aqui poner interfaz con odrive -->
             </joint>
-            <actuator name="pris_motor">
+            <actuator name="${z_axis_joint_name}_motor">
                 <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>                <!-- aqui poner interfaz con odrive -->
                 <mechanicalReduction>392.5</mechanicalReduction>
             </actuator>
