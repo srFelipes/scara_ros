@@ -344,7 +344,7 @@
                                     <type>rosgraph_msgs/Clock</type>
                                 </x_axis>
                                 <y_axis>
-                                    <field></field>
+                                    <field>process_value</field>
                                     <field_type>0</field_type>
                                     <scale>
                                         <absolute_maximum>1000</absolute_maximum>
