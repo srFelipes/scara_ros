@@ -1,11 +1,12 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>nelen_debug</name>
+  <name>nelen_utils</name>
   <version>0.7.0</version>
-  <description>Visualization utilities to debug nelen</description>
+  <description>Utilities for nelen robot</description>
   <license>Modified BSD</license>
 
   <author email="fgerman.mena@gmail.com">Felipe Guajardo</author>
+  <author email="fgerman.mena@gmail.com">Matias Mattamala</author>
   <maintainer email="fgerman.mena@gmail.com">Felipe Guajardo</maintainer>
 
 

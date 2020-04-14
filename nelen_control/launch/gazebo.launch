@@ -18,6 +18,12 @@
   <node name="spawn_gazebo_model" pkg="gazebo_ros" type="spawn_model" args="-urdf -param robot_description -model robot -x 0 -y 0 -z 0"
     respawn="false" output="screen" />
 
+  <!-- Launches controllers -->
   <include file="$(find nelen_control)/launch/ros_controllers.launch"/>
+
+  <!-- Launches the robot state publisher -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher">
+    <remap from="joint_states" to="nelen/joint_states" />
+  </node>
 
 </launch>
