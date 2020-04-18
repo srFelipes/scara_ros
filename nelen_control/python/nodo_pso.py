@@ -126,9 +126,9 @@ def run_once(p,i,d,joint):
     # suscribirse a los joints segun sea el caso
     if joint=='codo':
         #setear codo
-        client = dynamic_reconfigure.client.Client('/nelen/codo_cont/pid')
-        pub_codo_cmd = rospy.Publisher('/nelen/codo_cont/command', Float64, queue_size=10)
-        sub_codo_state = rospy.Subscriber('/nelen/codo_cont/state', JointControllerState, listener_callback)
+        client = dynamic_reconfigure.client.Client('/nelen/codo_control/pid')
+        pub_codo_cmd = rospy.Publisher('/nelen/codo_control/command', Float64, queue_size=10)
+        sub_codo_state = rospy.Subscriber('/nelen/codo_control/state', JointControllerState, listener_callback)
 
     elif joint=='hombro':
         #setear hombro
