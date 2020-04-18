@@ -140,18 +140,18 @@ def main_loop(parameter, total_time):
     rospy.init_node('nelen_step_response_example')
 
     # Create publisher for codo
-    pub_codo_cmd = rospy.Publisher('/nelen/codo_cont/command', Float64, queue_size=10)
+    pub_codo_cmd = rospy.Publisher('/nelen/codo_control/command', Float64, queue_size=10)
 
     # Create a subscriber for codo
-    sub_codo_state = rospy.Subscriber('/nelen/codo_cont/state', JointControllerState, codo_callback)
+    sub_codo_state = rospy.Subscriber('/nelen/codo_control/state', JointControllerState, codo_callback)
 
     # Set publication rate
     rate = rospy.Rate(100)  # 100hz
 
     # Set PID gains. Should fix this, seems not working.. dynamic_reconfigure?
-    rospy.set_param('/nelen/codo_cont/pid/p', parameter[0])  # set P gain
-    rospy.set_param('/nelen/codo_cont/pid/i', parameter[1])  # set I gain
-    rospy.set_param('/nelen/codo_cont/pid/d', parameter[2])  # set D gain
+    rospy.set_param('/nelen/codo_control/pid/p', parameter[0])  # set P gain
+    rospy.set_param('/nelen/codo_control/pid/i', parameter[1])  # set I gain
+    rospy.set_param('/nelen/codo_control/pid/d', parameter[2])  # set D gain
 
     # Main loop
     # We'll publish commands at the rate defined before

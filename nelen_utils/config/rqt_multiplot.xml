@@ -175,7 +175,7 @@
                                         <relative_minimum>-1000</relative_minimum>
                                         <type>0</type>
                                     </scale>
-                                    <topic>/nelen/codo_cont/command</topic>
+                                    <topic>/nelen/codo_control/command</topic>
                                     <type>std_msgs/Float64</type>
                                 </y_axis>
                             </axes>
@@ -226,7 +226,7 @@
                                         <relative_minimum>-1000</relative_minimum>
                                         <type>0</type>
                                     </scale>
-                                    <topic>/nelen/codo_cont/state</topic>
+                                    <topic>/nelen/codo_control/state</topic>
                                     <type>control_msgs/JointControllerState</type>
                                 </y_axis>
                             </axes>

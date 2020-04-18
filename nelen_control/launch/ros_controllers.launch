@@ -6,6 +6,6 @@
 
   <!-- Load the controllers -->
   <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
-    output="screen" ns="/nelen" args="codo_cont hombro_control prism_control joint_state_controller"/>
+    output="screen" ns="/nelen" args="codo_control hombro_control prism_control joint_state_controller"/>
 
 </launch>

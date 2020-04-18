@@ -22,7 +22,7 @@ nelen:
   joint_state_controller:
     type: joint_state_controller/JointStateController
     publish_rate: 50
-  codo_cont:
+  codo_control:
     type: effort_controllers/JointPositionController
     joint: codo
     pid: {p: 100.0, i: 0.01, d: 10.0}
