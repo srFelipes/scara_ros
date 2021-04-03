@@ -1,0 +1,36 @@
+#!/bin/bash
+while :
+do
+    echo "mode?"
+    read mode
+    echo "Entering mode $mode"
+    if [ $mode == 0 ]
+    then
+        ./homing.py
+    elif [ $mode == test ]
+    then
+        ./test.py
+    elif [ $mode == trash ]
+    then
+        ./movto_trash.py
+    elif [ $mode == 8 ]
+    then
+        ./demo.py
+    elif [ $mode == 1 ]
+    then
+        ./movto.py
+    elif [ $mode == help ]
+    then
+        echo "mode = 0 --> homing rutine"
+        echo "mode = 1 --> control mode (run homing first"
+        echo "mode = 8 --> demo rutine (run homing first)"
+        echo "mode = test --> testing some stuff"
+        echo "mode = trash --> pick and place trash demo (10/Dic/2021)"   
+    elif [ $mode == exit ]
+    then
+        echo "Leaving scara.. Rebember: Scaring is caring <3" && exit 
+    else
+        echo "mode out of scope.. yet!"
+    fi
+done
+        

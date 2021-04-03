@@ -1,0 +1,27 @@
+8all this code will be executed using the nelen env.
+So, if you are going to create a new scritp file, 
+you need to start the code writing:
+#!usr/bin/env nelen
+Then, remember to make the scrip executable:
+chmod +x <file.py>
+
+To run the scara robot from terminal:
+1.- activate nelen enviroment
+~$ source nelen/bin/activate
+navigate to nelen_code (folder where you can find the run_me script)
+(nelen)..~$ cd nelen_code/
+if you want to check what files are in nelen_code type:
+(nelen) .. :~/nelen_code$ ls
+output example:
+homing.py  movto.py  ReadMe  run_me
+Then, to start interactig with scara robot type:
+(nelen) .. :~/nelen_code$ ./run_me
+
+The following mode are supported:
+0.- homing: execute homing rutine
+8.- demo: execute a demo rutine
+1.- movto: allow moving scara to certain x,y,z position
+
+Future rutines:
+2.- joystick: allow moving scara using a joystick
+3.- GUI: a simple GUI to interact with scara robot
