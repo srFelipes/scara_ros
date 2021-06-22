@@ -43,10 +43,10 @@ def main_loop():
     rospy.init_node('nelen_step_response_example')
     
     # Create publisher for codo
-    pub_codo_cmd = rospy.Publisher('/nelen/codo_control/command', Float64, queue_size=10)
+    pub_codo_cmd = rospy.Publisher('/nelen/codo_cont/command', Float64, queue_size=10)
 
     # Create a subscriber for codo
-    sub_codo_state = rospy.Subscriber('/nelen/codo_control/state', JointControllerState, codo_callback)
+    sub_codo_state = rospy.Subscriber('/nelen/codo_cont/state', JointControllerState, codo_callback)
 
     # Set publication rate
     rate = rospy.Rate(100) # 100hz
